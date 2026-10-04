@@ -1,5 +1,7 @@
-#密钥文件，绝对不要上传
-.env
+
+.env.local
+.env.dev
+.env.prod
 
 # Python缓存
 __pycache__/
@@ -18,9 +20,6 @@ venv/
 # 大模型嵌入模型缓存
 ~/.cache/huggingface
 %USERPROFILE%\.cache\huggingface
-
-# 本地下载的嵌入模型权重
-model/
 
 # 系统文件
 .DS_Store

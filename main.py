@@ -142,6 +142,13 @@ Begin!
 
 agent = create_agent(llm, tools, system_prompt=react_prompt)
 
+def chat_with_agent(user_query: str) -> str:
+    try:
+        result = agent.invoke({"messages": [("user", user_query)]})
+        return result["messages"][-1].content
+    except Exception as e:
+        return f"调用Agent出错：{str(e)}"
+
 if __name__ == "__main__":
     print("==== RAG+ReAct文档问答Agent ====")
     print("命令：load 文档路径 加载文件 | exit 退出")
@@ -157,3 +164,5 @@ if __name__ == "__main__":
         # 问答
         result = agent.invoke({"messages": [("user", user_input)]})
         print("\n====推理与答案====\n", result["messages"][-1].content)
+
+        
